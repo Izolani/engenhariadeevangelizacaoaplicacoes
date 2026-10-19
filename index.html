@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engenharia de Evangelização – Aplicações</title>
+  <meta name="description" content="Como aplicar na prática os princípios do e-book Engenharia de Evangelização: processo, estratégia, comunicação, discipulado, dados e governança.">
+  <meta property="og:title" content="Engenharia de Evangelização – Aplicações">
+  <meta property="og:description" content="Como transformar princípios de processo, estratégia e gestão em ação na sua comunidade.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --marinho: #0B1F3A;
+      --dourado: #C9A227;
+      --offwhite: #F8F6F0;
+      --texto: #2B2B2B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Georgia, "Times New Roman", serif; color: var(--texto); background: var(--offwhite); line-height: 1.7; }
+    h1, h2, h3 { font-family: Georgia, serif; color: var(--marinho); line-height: 1.25; }
+    h2 { font-size: 2rem; margin-bottom: 1.2rem; }
+    h3 { font-size: 1.15rem; margin-bottom: .5rem; }
+    p { margin-bottom: 1rem; }
+    a { color: var(--marinho); }
+    section { padding: 80px 20px; }
+    .container { max-width: 1040px; margin: 0 auto; }
+    .sans { font-family: "Segoe UI", Arial, sans-serif; }
+    .alt { background: #fff; }
+
+    /* Menu fixo */
+    nav { position: fixed; top: 0; left: 0; right: 0; background: var(--marinho); z-index: 100; }
+    nav .container { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; flex-wrap: wrap; gap: 8px; }
+    nav .logo { color: var(--dourado); text-decoration: none; font-size: 1rem; }
+    nav ul { list-style: none; display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: #fff; text-decoration: none; font-family: "Segoe UI", Arial, sans-serif; font-size: .9rem; }
+    nav a:hover { color: var(--dourado); }
+
+    /* Hero */
+    .hero { background: linear-gradient(160deg, var(--marinho), #13305A); color: #fff; text-align: center; padding-top: 140px; }
+    .hero h1 { color: #fff; font-size: 2.6rem; margin-bottom: .5rem; }
+    .hero .subtitulo { color: var(--dourado); font-size: 1.2rem; margin-bottom: 1.5rem; }
+    .hero .versiculo { font-style: italic; max-width: 680px; margin: 0 auto 2rem; opacity: .92; }
+    .btn { display: inline-block; background: var(--dourado); color: var(--marinho); padding: 14px 30px; border-radius: 6px; text-decoration: none; font-family: "Segoe UI", Arial, sans-serif; font-weight: bold; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+
+    /* Cards */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+    .card { background: #fff; border-top: 3px solid var(--dourado); padding: 24px; border-radius: 6px; box-shadow: 0 2px 10px rgba(11,31,58,.06); }
+    .card .ref { font-family: "Segoe UI", Arial, sans-serif; font-size: .8rem; color: #8a7a3a; text-transform: uppercase; letter-spacing: 1px; }
+    .alt .card { background: var(--offwhite); }
+
+    /* Passos */
+    .passos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; counter-reset: passo; }
+    .passo { position: relative; padding: 28px 24px 24px; border: 1px solid #e3dcc6; border-radius: 6px; background: #fff; }
+    .passo::before { counter-increment: passo; content: counter(passo); display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--marinho); color: var(--dourado); font-family: "Segoe UI", Arial, sans-serif; font-weight: bold; margin-bottom: 12px; }
+
+    /* Checklist */
+    .eixo { background: #fff; border-top: 3px solid var(--dourado); padding: 24px; border-radius: 6px; }
+    .eixo h3 { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .contador { font-family: "Segoe UI", Arial, sans-serif; font-size: .85rem; color: #555; font-weight: normal; }
+    .eixo label { display: block; font-family: "Segoe UI", Arial, sans-serif; margin-bottom: .6rem; cursor: pointer; }
+    .eixo input { margin-right: 8px; accent-color: var(--dourado); }
+
+    /* FAQ */
+    details { background: #fff; border: 1px solid #e3dcc6; border-radius: 6px; margin-bottom: 10px; padding: 14px 18px; }
+    summary { cursor: pointer; color: var(--marinho); font-weight: bold; font-family: "Segoe UI", Arial, sans-serif; }
+    details p { margin-top: 10px; }
+
+    /* Autor */
+    .autor { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+    .autor img { width: 100%; max-width: 280px; aspect-ratio: 1 / 1; object-fit: cover; border: 2px solid var(--dourado); border-radius: 16px; }
+    .autor .texto { flex: 1; min-width: 260px; }
+
+    /* Transparência */
+    .transparencia { background: #FFF8E1; border-left: 4px solid var(--dourado); padding: 16px 20px; font-family: "Segoe UI", Arial, sans-serif; font-size: .92rem; border-radius: 4px; }
+
+    /* CTA e rodapé */
+    .cta { background: var(--marinho); color: #fff; text-align: center; }
+    .cta h2 { color: #fff; }
+    footer { background: #060F1E; color: #bbb; text-align: center; padding: 30px 20px; font-family: "Segoe UI", Arial, sans-serif; font-size: .88rem; }
+    footer .versiculo { color: var(--dourado); margin-top: 8px; }
+
+    #topo { position: fixed; right: 20px; bottom: 20px; background: var(--dourado); color: var(--marinho); border: none; width: 46px; height: 46px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s; box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+    #topo.visivel { opacity: 1; pointer-events: auto; }
+
+    /* Animação de entrada */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visivel { opacity: 1; transform: none; }
+
+    @media (max-width: 720px) {
+      .hero h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      nav ul { gap: 10px; }
+      section { padding: 60px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#inicio" class="logo">Engenharia de Evangelização – Aplicações</a>
+    <ul>
+      <li><a href="#areas">Aplicações</a></li>
+      <li><a href="#passos">Como começar</a></li>
+      <li><a href="#checklist">Checklist</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+      <li><a href="#autor">Autor</a></li>
+      <li><a href="#compra">Adquirir</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="container reveal">
+    <h1>Engenharia de Evangelização – Aplicações</h1>
+    <p class="subtitulo">Como transformar princípios de processo, estratégia e gestão em ação na sua comunidade</p>
+    <p class="versiculo">"Ide por todo o mundo, pregai o evangelho a toda criatura." — Marcos 16:15</p>
+    <a href="#areas" class="btn">Ver aplicações</a>
+  </div>
+</header>
+
+<section id="areas">
+  <div class="container reveal">
+    <h2>Áreas de aplicação</h2>
+    <div class="grid">
+      <div class="card"><span class="ref">Capítulo 6</span><h3>Processo evangelístico em 7 etapas</h3><p>Segmentação de público, comunicação contextualizada, conexão relacional, decisão, consolidação em até 48 horas, discipulado e multiplicação.</p></div>
+      <div class="card"><span class="ref">Capítulo 2</span><h3>Esteira de valor ministerial</h3><p>Contato primário, comunicação, acolhimento, discipulado, consolidação, formação e multiplicação.</p></div>
+      <div class="card"><span class="ref">Capítulo 5</span><h3>Os 5 pilares</h3><p>Planejamento, comunicação, discipulado, tecnologia e gestão de pessoas.</p></div>
+      <div class="card"><span class="ref">Capítulo 8</span><h3>Evangelização digital por canal</h3><p>YouTube, Instagram, WhatsApp, TikTok e Facebook, cada um com uma função específica.</p></div>
+      <div class="card"><span class="ref">Capítulo 9</span><h3>Inteligência artificial com limites éticos</h3><p>Pesquisa doutrinária, tradução, triagem de pedidos de oração e trilhas de aprendizado, sempre como ferramenta de apoio.</p></div>
+      <div class="card"><span class="ref">Capítulos 13 e 15</span><h3>Análise de dados e métricas</h3><p>Dados demográficos, comportamentais, de conversão, de retenção e de multiplicação, com indicadores pessoais e institucionais.</p></div>
+      <div class="card"><span class="ref">Capítulo 16</span><h3>Logística de eventos</h3><p>Pré-produção, execução e pós-produção, com contato com os decididos em até 48 horas.</p></div>
+      <div class="card"><span class="ref">Capítulos 19 e 20</span><h3>Governança e compliance</h3><p>Conselhos separados, comitê fiscal independente, documentos normativos e adequação à LGPD.</p></div>
+      <div class="card"><span class="ref">Capítulo 21</span><h3>Inovação aberta</h3><p>Consórcios tecnológicos, ações regionais integradas e laboratórios compartilhados entre congregações.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="passos" class="alt">
+  <div class="container reveal">
+    <h2>Como começar em 3 passos</h2>
+    <div class="passos">
+      <div class="passo"><h3>Diagnóstico</h3><p>Mapeie o fluxo atual da sua comunidade e identifique os gargalos.</p></div>
+      <div class="passo"><h3>Implantação</h3><p>Escolha dois ou três eixos prioritários e defina um responsável para cada um.</p></div>
+      <div class="passo"><h3>Acompanhamento</h3><p>Meça com indicadores simples e revise o plano a cada trimestre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="checklist">
+  <div class="container reveal">
+    <h2>Checklist interativo</h2>
+    <p>Marque os itens conforme avança na implantação. O contador de cada eixo é atualizado automaticamente.</p>
+    <div class="grid">
+      <div class="eixo">
+        <h3>Planejamento e Estratégia <span class="contador" id="c1">0/4</span></h3>
+        <label><input type="checkbox" data-grupo="c1"> Visão e missão comunicadas à membresia</label>
+        <label><input type="checkbox" data-grupo="c1"> Metas para 12 meses definidas</label>
+        <label><input type="checkbox" data-grupo="c1"> Cronograma anual aprovado pelo conselho</label>
+        <label><input type="checkbox" data-grupo="c1"> Orçamento alocado para colheita e discipulado</label>
+      </div>
+      <div class="eixo">
+        <h3>Processos e Fluxos Operacionais <span class="contador" id="c2">0/4</span></h3>
+        <label><input type="checkbox" data-grupo="c2"> Jornada do novo convertido mapeada</label>
+        <label><input type="checkbox" data-grupo="c2"> Equipe de recepção treinada</label>
+        <label><input type="checkbox" data-grupo="c2"> Contato com convertidos em até 48 horas</label>
+        <label><input type="checkbox" data-grupo="c2"> Esteira de discipulado padronizada</label>
+      </div>
+      <div class="eixo">
+        <h3>Gestão de Equipes e Talentos <span class="contador" id="c3">0/4</span></h3>
+        <label><input type="checkbox" data-grupo="c3"> Mapeamento vocacional de dons realizado</label>
+        <label><input type="checkbox" data-grupo="c3"> Calendário semestral de capacitação homologado</label>
+        <label><input type="checkbox" data-grupo="c3"> Reuniões quinzenais de alinhamento e oração</label>
+        <label><input type="checkbox" data-grupo="c3"> Plano transparente de sucessão ministerial</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="container reveal">
+    <h2>Perguntas frequentes</h2>
+    <details>
+      <summary>O que é Engenharia de Evangelização?</summary>
+      <p>É a aplicação de princípios de engenharia, gestão de processos e estratégia organizacional à missão evangelística, sem secularizar a soberania de Deus.</p>
+    </details>
+    <details>
+      <summary>A tecnologia substitui o Espírito Santo?</summary>
+      <p>Não. O livro afirma que a tecnologia e a inteligência artificial são ferramentas auxiliares. A unção do Espírito Santo, a intercessão e o pastoreio pessoal continuam insubstituíveis.</p>
+    </details>
+    <details>
+      <summary>Para qual tipo de igreja serve?</summary>
+      <p>Para comunidades de diferentes portes que querem organizar a missão com planejamento, comunicação e acompanhamento dos novos convertidos.</p>
+    </details>
+    <details>
+      <summary>Preciso ter conhecimento técnico?</summary>
+      <p>Não. O livro usa linguagem acessível e apresenta o conteúdo em etapas práticas.</p>
+    </details>
+    <details>
+      <summary>Como começar?</summary>
+      <p>Comece pelo diagnóstico do fluxo atual da sua comunidade, depois escolha dois ou três eixos prioritários e acompanhe os resultados com indicadores simples.</p>
+    </details>
+  </div>
+</section>
+
+<section id="autor">
+  <div class="container reveal autor">
+    <img src="images/foto.png" alt="Dr. Antonio Orlando Izolani">
+    <div class="texto">
+      <h2>Sobre o autor</h2>
+      <p>Dr. Antonio Orlando Izolani é Licenciado em Química, Mestre em Química Inorgânica e Doutor em Geoquímica Ambiental, pesquisador, educador e desenvolvedor de projetos cristãos e educacionais. Com sólida formação interdisciplinar, tem dedicado sua trajetória intelectual e ministerial à convergência construtiva entre metodologia científica, engenharia de processos, inovação tecnológica e o compromisso irrenunciável com a proclamação das Escrituras Sagradas. Atua ativamente na instrumentalização de líderes e comunidades de fé para a expansão sustentável e ordenada da missão do Reino de Deus.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+    <div class="transparencia">
+      <strong>Transparência:</strong> este conteúdo foi elaborado com apoio de Inteligência Artificial (IA).
+    </div>
+  </div>
+</section>
+
+<section id="compra" class="cta">
+  <div class="container reveal">
+    <h2>Pronto para aplicar?</h2>
+    <p style="margin-bottom:1.8rem;">Leve processo, estratégia e fidelidade bíblica para a sua comunidade.</p>
+    <a href="#" class="btn">Adquirir o e-book</a>
+  </div>
+</section>
+
+<footer>
+  <p>© Antonio Orlando Izolani</p>
+  <p class="versiculo">"Ide por todo o mundo, pregai o evangelho a toda criatura." — Marcos 16:15</p>
+</footer>
+
+<button id="topo" aria-label="Voltar ao topo">↑</button>
+
+<script>
+  // Animação de entrada ao rolar
+  const observer = new IntersectionObserver((entradas) => {
+    entradas.forEach(e => { if (e.isIntersecting) e.target.classList.add('visivel'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Contador do checklist por eixo
+  document.querySelectorAll('input[data-grupo]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const grupo = cb.dataset.grupo;
+      const total = document.querySelectorAll(`input[data-grupo="${grupo}"]`).length;
+      const marcados = document.querySelectorAll(`input[data-grupo="${grupo}"]:checked`).length;
+      document.getElementById(grupo).textContent = `${marcados}/${total}`;
+    });
+  });
+
+  // Botão voltar ao topo
+  const botaoTopo = document.getElementById('topo');
+  window.addEventListener('scroll', () => {
+    botaoTopo.classList.toggle('visivel', window.scrollY > 400);
+  });
+  botaoTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
